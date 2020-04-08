@@ -1,5 +1,6 @@
 from flask import Flask
-from . import config
+import os
+import config
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -14,7 +15,7 @@ def create_app(test_config=None):
         app.config.from_object(config.TestingConfig)
 
     try:
-        os.makedir(app.instance_path)
+        os.makedirs(app.instance_path)
     except OSError:
         pass
 
