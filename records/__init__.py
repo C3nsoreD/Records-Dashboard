@@ -4,6 +4,10 @@ from flask_migrate import Migrate
 import os
 import config
 
+db = SQLAlchemy()
+migrate = Migrate()
+
+
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
  
@@ -14,8 +18,8 @@ def create_app(test_config=None):
     else:
         app.config.from_object(config.TestingConfig)
 
-    db = SQLAlchemy(app)
-    migrate = Migrate(app, db)
+    db.init_app(app)
+    migrate.init_app(app, db)
 
     try:
         os.makedirs(app.instance_path)
