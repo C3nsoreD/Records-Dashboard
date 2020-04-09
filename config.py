@@ -7,7 +7,9 @@ class Config(object):
     TESTING = False
     # SECRET_KEY = "B\xb2?.\xdf\x9f\xa7m\xf8\x8a%,\xf7\xc4\xfa\x91"
 
-    DB_NAME = "production-db"
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+        'sqlite:///' + os.path.join(dirpath, 'app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False 
     DB_USERNAME = "admin"
     DB_PASSWORD = "example"
 

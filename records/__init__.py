@@ -1,18 +1,21 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 import os
 import config
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_object("config.DevelopmentConfig")
-
+ 
     if app.config['ENV'] == 'Production':
         app.config.from_object(config.ProductionConfig)
-
     elif test_config is None:
         app.config.from_object(config.DevelopmentConfig)
     else:
         app.config.from_object(config.TestingConfig)
+
+    db = SQLAlchemy(app)
+    migrate = Migrate(app, db)
 
     try:
         os.makedirs(app.instance_path)
