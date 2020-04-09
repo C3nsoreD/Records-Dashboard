@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+# from . import models 
 import os
 import config
 
@@ -20,6 +21,7 @@ def create_app(test_config=None):
 
     db.init_app(app)
     migrate.init_app(app, db)
+    from . import models
 
     try:
         os.makedirs(app.instance_path)
