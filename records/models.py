@@ -1,4 +1,5 @@
 from records import db
+from datetime import datetime
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -16,6 +17,7 @@ class Client(db.Model):
     lastname = db.Column(db.String(64), index=False, unique=False)
     email = db.Column(db.String(120), index=True, unique=True)
     factions = db.relationship('Faction', backref='client', lazy=True)
+    dos = db.Column(db.DateTime, index=True, defualt=datetime.utcnow)
 
     def __repr__(self):
         return '<CLient {} {}'.format(self.firstname, self.lastname)
