@@ -1,4 +1,4 @@
-from records import db
+from . import db
 from datetime import datetime
 
 class User(db.Model):
@@ -20,7 +20,7 @@ class Client(db.Model):
     # dos = db.Column(db.DateTime, index=True, defualt=datetime.utcnow)
 
     def __repr__(self):
-        return '<CLient {} {}'.format(self.firstname, self.lastname)
+        return '<Client {} {}'.format(self.firstname, self.lastname)
 
 class Faction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
