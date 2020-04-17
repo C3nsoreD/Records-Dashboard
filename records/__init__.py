@@ -37,5 +37,7 @@ def create_app(test_config=None):
     @app.route("/test")
     def test():
         return "Working..."
-    
+    @app.route("/fail")
+    def fail():
+        return "Failed"
     return app
