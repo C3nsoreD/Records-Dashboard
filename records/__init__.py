@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
-from . import auth
+# from . import auth
 import os
 import config
 
@@ -24,7 +24,7 @@ def create_app(test_config=None):
     migrate.init_app(app, db)
     login_manager.init_app(app)
 
-    from . import models
+    from . import models, auth, forms
     
     try:
         os.makedirs(app.instance_path)
@@ -37,7 +37,5 @@ def create_app(test_config=None):
     @app.route("/test")
     def test():
         return "Working..."
-    @app.route("/fail")
-    def fail():
-        return "Failed"
+
     return app

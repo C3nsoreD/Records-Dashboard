@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtfforms import StringField, PasswordField, BooleanField, SubmitField
-from wtfforms.validators  import DataRequired
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators  import DataRequired
 
 class LoginForm(FlaskForm):
     username= StringField('Username', validators=[DataRequired()])
@@ -9,4 +9,4 @@ class LoginForm(FlaskForm):
     submit= StringField("Sign In")
 
 
-TODO: Create a login form 
+#TODO: Create a login form 

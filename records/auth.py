@@ -1,15 +1,14 @@
 from flask import Blueprint, flash, render_template
 from flask_login import current_user, login_user
+
 from .forms import LoginForm
 from .models import User
-
-
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
-    FIXME: 
+    #FIXME: 
     if current_user.is_authenticated:
         return redirect(url_for('test'))
     
@@ -27,5 +26,5 @@ def login():
     return render_template('login.html', title='Sign In', form=form)
 
 
-TODO: Configure Admin login
-    TODO: add logout 
+#TODO: Configure Admin login
+    #TODO: add logout 

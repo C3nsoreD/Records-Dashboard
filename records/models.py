@@ -1,8 +1,8 @@
-from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
-from . import login_manager 
+from . import login_manager, db 
+
 # User admin 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,7 +23,7 @@ class User(UserMixin, db.Model):
 @login_manager.user_loader
 def load_user(id):
     return User.query.get(int(id))
-FIXME: load_user....
+#FIXME: load_user....
 
 #--- Record Schema
 class Client(db.Model):
