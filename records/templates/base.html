@@ -2,19 +2,13 @@
 <title>{% block title %}{% endblock title %} Records Application</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href={{ url_for('blog.index')}}>Records</a>
+  <a class="navbar-brand" href=#>Records</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      {% if g.user %}
-        <li><span>{{ g.user['username'] }}</span>
-        <li class="nav-item"><a  class="nav-link" href="{{ url_for('auth.logout') }}">Sign out</a>
-      {% else %}
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.login') }}">Sign in</a>
-      {% endif %}
+ 
     </ul>
   </div>
 </nav>

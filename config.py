@@ -22,7 +22,7 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-
+    SECRET_KEY="hello"
     DB_NAME = "development-db"
     DB_USERNAME = "admin"
     DB_PASSWORD = "example"
